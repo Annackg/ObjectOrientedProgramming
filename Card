@@ -1,0 +1,117 @@
+public class Card
+{
+    // instance variables
+    private String number;
+    private String suit;
+    public static int numberOfCards=0;
+
+    /**
+     * Constructor for objects of class Card
+     */
+    public Card(String pNum, String pSuit)
+    {
+        number = pNum;
+        suit = pSuit;
+        numberOfCards++;
+    }
+     public Card(int pNum, String pSuit)
+    {
+       
+        suit = pSuit;
+        numberOfCards++;
+    }
+    public Card(String pSuit)
+    {
+        numberOfCards++;
+        suit = pSuit;
+        int rankNumber = (int)(Math.random()*13)+1;
+        number = String.valueOf(rankNumber);
+        if(number.equals("11"))
+        {
+            number = "Jack";
+        }
+        else if(number.equals("12"))
+        {
+            number = "Queen";
+        }
+        else if(number.equals("13"))
+        {
+            number = "King";
+        }
+        else if(number.equals("1"))
+        {
+            number = "Ace";
+        }
+    }
+   
+    public Card()
+    {
+        numberOfCards++;
+        int suitNumber = (int)(Math.random()*4)+1;
+        if(suitNumber ==1)
+        {
+            suit = "Hearts";
+        }
+        else if(suitNumber == 2)
+        {
+            suit = "Clubs";
+        }
+        else if(suitNumber == 3)
+        {
+            suit = "Diamonds";
+        }
+        else if(suitNumber == 4)
+        {
+            suit = "Spades";
+        }
+       
+        int rankNumber = (int)(Math.random()*13)+1;
+        number = String.valueOf(rankNumber);
+        this.cnttin();
+       
+    }
+   
+    //Getter Methods
+    public String getNumber()
+    {
+        return number;
+    }
+    public String getSuit()
+    {
+        return suit;
+    }
+    //Setter Methods
+    public void setNumber(String newNumber)
+    {
+        number = newNumber;
+        this.cnttin();
+           }
+    public void setSuit(String newSuit)
+    {
+        suit = newSuit;
+    }
+    public void cnttin()
+    {
+         if(number.equals("11"))
+        {
+            number = "Jack";
+        }
+        else if(number.equals("12"))
+        {
+            number = "Queen";
+        }
+        else if(number.equals("13"))
+        {
+            number = "King";
+        }
+        else if(number.equals("1"))
+        {
+            number = "Ace";
+        }
+    }
+    
+    public String read()
+    {
+        return "This is the " + this.getNumber() + " of " + this.getSuit() + ".";
+    }
+}
