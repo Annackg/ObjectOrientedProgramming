@@ -1,5 +1,5 @@
 public class FixedCodeB
-{
+{ 
     private String [] num = new String [4];
     private String [] guessList = new String[4];
     private boolean [] rightNums = new boolean[4];
