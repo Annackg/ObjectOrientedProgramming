@@ -1,0 +1,20 @@
+public class SongCreator
+{
+    public static void main()
+    {
+        //SongObjectClass song1 = new SongObjectClass("Blue", "J", 2.34, "Pop");
+        //SongObjectClass song2 = new SongObjectClass("Red", "H", 3.45, "Rock");
+        //SongObjectClass song3 = new SongObjectClass("Yellow", "E", 4.5, "R&B");
+        //SongObjectClass song4 = new SongObjectClass("Purple", "L", 2.5, "Blues");
+        //SongObjectClass song5 = new SongObjectClass("Cyan", "T", 4.2, "Pop");
+        //SongObjectClass song6 = new SongObjectClass("Green", "R", 1.56, "Pop");
+        //song1.play();
+        //song1.songDescription();
+        //song1.createPlaylist(3);
+        //SongObjectClass.totalLength(song1, song2);
+        //SongObjectClass.checkGenre(song1, song2, song3, song4);
+        //SongObjectClass.checkGenre(song1, song5, song6);
+        Album album1 = new Album();
+        album1.customDescription();
+    }
+}
