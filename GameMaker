@@ -1,0 +1,9 @@
+public class GameMaker
+{
+    public static void main()
+    {
+       CodeBreakingGame game1 = new CodeBreakingGame("1234");
+       game1.play();
+    }
+}
+
