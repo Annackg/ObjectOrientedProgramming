@@ -1,0 +1,214 @@
+public class SongObjectClass
+{
+    private String songName;
+    private String artistName;
+    private double length;
+    private String genre;
+
+    /**
+     * Constructor for objects of class SongObjectClass
+     */
+    public SongObjectClass(String pSongName, String pArtistName, double pLength, String pGenre)
+    {
+        songName = pSongName;
+        artistName = pArtistName;
+        length = pLength;
+        genre = pGenre;
+    }
+
+    // getter methods
+    public String getSongName()
+    {
+        return songName;
+    }
+
+    public String getArtistName()
+    {
+        return artistName;
+    }
+
+    public double getLength()
+    {
+        return length;
+    }
+
+    public String getGenre()
+    {
+        return genre;
+    }
+
+    // setter methods
+    public void newSong(String nSong)
+    {
+        songName = nSong;
+    }
+
+    public void newArtist(String nArtist)
+    {
+        artistName = nArtist;
+    }
+
+    public void newLength(double duration)
+    {
+        length = duration;
+    }
+
+    public void newGenre(String nGenre)
+    {
+        genre = nGenre;
+    }
+
+    public void play()
+    {
+        Scanner scan = new Scanner(System.in);
+        System.out.println("What are the lyrics of the song?");
+        String lyrics = scan.nextLine();
+        System.out.println("Do you want to play the song?");
+        String answer = scan.nextLine();
+        if (answer.equalsIgnoreCase("yes") || answer.equalsIgnoreCase("y"))
+        {
+            System.out.println("Playing " + songName + " by " + artistName + ".");
+            System.out.println(lyrics);
+        }
+    }
+
+    public void songDescription()
+    {
+        System.out.println("The name of this song is " + songName + ", written by " + artistName + 
+            ". It has a length of " + length + " minute(s), and the genre is " + genre + ".");
+    }
+
+    public void createPlaylist(int playlistLength)
+    {
+        String playlist = "";
+        Scanner scan = new Scanner(System.in);
+        for (int i = 0; i < playlistLength; i++)
+        {
+            System.out.println("What song do you want to add?");
+            String first = scan.nextLine();
+            playlist = playlist + first + ", ";
+        }
+        System.out.println("Your playlist consists of the songs " + playlist);
+    }
+
+    public static void totalLength(SongObjectClass s1, SongObjectClass s2)
+    {
+        double total = s1.length + s2.length;
+        System.out.println("The duration of these two songs combined is: " + total);
+    }
+
+    public static void checkGenre(SongObjectClass... g1)
+    {
+        boolean allDifferent = true;
+        int count1 = 0;
+        int count2 = 0;
+        for (SongObjectClass s1: g1)
+        {
+            count2++;
+            for (SongObjectClass s2: g1)
+            {
+
+                if (s1.genre.equals(s2.genre))
+                {
+                    count1++;
+
+                }
+            }
+        }
+        if (count1 > count2)
+        {
+            System.out.println("Not all songs are unique.");
+        }
+        else 
+        {
+            System.out.println("All songs are unique");
+        }
+    }
+    
+    public static double randomLength()
+    {
+        double l = (Math.random()*6);
+        if (l < 1)
+        {
+            l = l + 1;
+        }
+        return l;
+    }
+    
+    public static String randomGenre()
+    {
+        int g = (int)(Math.random()*10);
+        String rGenre = "";
+        if (g == 1)
+        {
+            rGenre = "Pop";
+        }
+        else if (g == 2)
+        {
+            rGenre = "Blues";
+        }
+        else if (g == 3)
+        {
+            rGenre = "R&B";
+        }
+        else if (g == 4)
+        {
+            rGenre = "Indie";
+        }
+        else if (g == 5)
+        {
+            rGenre = "Rock";
+        }
+        else if (g == 6)
+        {
+            rGenre = "Soul";
+        }
+        else if (g == 7)
+        {
+            rGenre = "Dance";
+        }
+        else if (g == 8)
+        {
+            rGenre = "Classical";
+        }
+        else if (g == 9)
+        {
+            rGenre = "Jazz";
+        }
+        return rGenre;
+    }
+    
+    static String artist = "";
+    
+    public static String rArtist()
+    {
+        String alphabet = "abcdefghijklmnopqrstuvwxyz";
+        String rName = "";
+        for (int i = 0; i < alphabet.length(); i++)
+        {
+            int rIndex = (int)(Math.random()*26);
+            rName = rName + alphabet.substring(rIndex, rIndex + 1);
+        }
+        rName = rName.substring(0, (int)(Math.random()*7));
+        artist = rName;
+        return rName;
+    }
+    public static String rSong()
+    {
+        String alphabet = "abcdefghijklmnopqrstuvwxyz";
+        String rS = "";
+        for (int i = 0; i < alphabet.length(); i++)
+        {
+            int rIndex = (int)(Math.random()*26);
+            rS = rS + alphabet.substring(rIndex, rIndex + 1);
+        }
+        rS = rS.substring(0, (int)(Math.random()*7));
+        return rS;
+    }
+    
+    public String read()
+    {
+        return "The name of this song is " + this.rSong() + " by " + artist +
+        " that is " + this.randomLength() + " minutes long, and its genre is " + this.randomGenre() + ". ";
+    }
+}
