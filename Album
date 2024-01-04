@@ -1,0 +1,54 @@
+public class Album
+{
+    private SongObjectClass song1;
+    private SongObjectClass song2;
+    private SongObjectClass song3;
+    private SongObjectClass song4;
+    private SongObjectClass song5;
+    private SongObjectClass song6;
+    private SongObjectClass song7;
+    private SongObjectClass song8;
+    private SongObjectClass [] collection;
+    public Album()
+    {
+        Scanner scan = new Scanner(System.in);
+        Scanner scan1 = new Scanner(System.in);
+        System.out.println("Do you want to make a custom album?");
+        String answer = scan.nextLine();
+        if (answer.equalsIgnoreCase("yes") || (answer.equalsIgnoreCase("y")))
+        {
+            System.out.println("How many songs will be in the album?");
+            int nSongs = scan1.nextInt();
+            collection = new SongObjectClass [nSongs];
+            String albumArtist = SongObjectClass.rArtist();
+            for (int i = 0; i < nSongs; i++)
+            {
+                collection[i] = new SongObjectClass(SongObjectClass.rSong(), albumArtist, SongObjectClass.randomLength(), SongObjectClass.randomGenre());
+            }
+        }
+        String albumArtist = SongObjectClass.rArtist();
+        song1 = new SongObjectClass(SongObjectClass.rSong(), albumArtist, SongObjectClass.randomLength(), SongObjectClass.randomGenre());
+        song2 = new SongObjectClass(SongObjectClass.rSong(), albumArtist, SongObjectClass.randomLength(), SongObjectClass.randomGenre());
+        song3 = new SongObjectClass(SongObjectClass.rSong(), albumArtist, SongObjectClass.randomLength(), SongObjectClass.randomGenre());
+        song4 = new SongObjectClass(SongObjectClass.rSong(), albumArtist, SongObjectClass.randomLength(), SongObjectClass.randomGenre());
+        song5 = new SongObjectClass(SongObjectClass.rSong(), albumArtist, SongObjectClass.randomLength(), SongObjectClass.randomGenre());
+        song6 = new SongObjectClass(SongObjectClass.rSong(), albumArtist, SongObjectClass.randomLength(), SongObjectClass.randomGenre());
+        song7 = new SongObjectClass(SongObjectClass.rSong(), albumArtist, SongObjectClass.randomLength(), SongObjectClass.randomGenre());
+        song8 = new SongObjectClass(SongObjectClass.rSong(), albumArtist, SongObjectClass.randomLength(), SongObjectClass.randomGenre());
+
+    }
+
+    public void description()
+    {
+        System.out.println("This album consists of eight songs: " + song1.read() + song2.read()
+            + song3.read() + song4.read() + song5.read() + song6.read() + song7.read() + song8.read());
+    }
+
+    public void customDescription()
+    {
+        for (int i = 0; i < collection.length; i++)
+        {
+            System.out.println("This album consists of the songs: " + collection[i].read());
+        }
+    }
+}
