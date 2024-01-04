@@ -1,0 +1,83 @@
+import java.util.Scanner;
+public class CodeBreakingGame
+{
+    private String [] num = new String [4];
+    private String [] guessList = new String[4];
+    private boolean [] rightNums = new boolean[4];
+
+    /**
+     * Constructor for objects of class CodeBreakingGame
+     */
+    public CodeBreakingGame(String pNum)
+    {
+        // loop used in case game was improved to have player 2 guess a number that has more than 4 digits
+        for (int i = 0; i < pNum.length(); i++)
+        {
+            for (int count = i; count < num.length; count++)
+            {
+                num[count] = pNum.substring(i, i+1);
+            }
+            read();
+        }
+    }
+
+    public void read()
+    {
+        for (int i = 0; i < num.length; i++)
+        {
+            System.out.print(num[i] + " ");
+        }
+    }
+
+    public void read2()
+    {
+        for (int i = 0; i < guessList.length; i++)
+        {
+            System.out.print(guessList[i] + " ");
+        }
+    }
+
+    public void play()
+    {
+        int guesses = 0;
+        int w = 0;
+        Scanner scan = new Scanner(System.in);
+        do
+        {
+            System.out.println("Guess a number.");
+            // guess needs to be four digits long
+            String guess = scan.nextLine();
+            guesses++;
+            for (int i = 0; i < guess.length(); i++)
+            {
+                guessList[i] = guess.substring(i, i+1);
+            }
+            for (int j = 0; j < guessList.length; j++)
+            {
+                if (guessList[j].equals(num[j]))
+                {
+                    System.out.println(guessList[j] + " is in the right position.");
+                    if (!rightNums[j]) 
+                    {
+                        w++;
+                        rightNums[j] = true;
+                    }
+                }
+                else
+                {
+                    for (int z = 0; z < num.length; z++)
+                    {
+                        if (num[z].equals(guessList[j]))
+                        {
+                            System.out.println("The number " + num[z] + " is in the list.");
+                        }
+                    }
+                }
+            }  
+        }
+        while (w < 4);
+        System.out.println("You won!");
+        System.out.println("It took " + guesses + " guesses.");
+    }
+
+}
