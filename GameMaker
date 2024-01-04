@@ -2,7 +2,7 @@ public class GameMaker
 {
     public static void main()
     {
-       CodeBreakingGame game1 = new CodeBreakingGame("1234");
+       CodeBModified game1 = new CodeBModified("1212");
        game1.play();
     }
 }
